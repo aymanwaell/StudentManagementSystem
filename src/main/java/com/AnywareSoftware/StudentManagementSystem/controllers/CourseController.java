@@ -2,6 +2,7 @@ package com.AnywareSoftware.StudentManagementSystem.controllers;
 
 import com.AnywareSoftware.StudentManagementSystem.entities.Course;
 import com.AnywareSoftware.StudentManagementSystem.services.CourseService;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<?> createCourse(@RequestBody Course course) {
         try {
             Course createdCourse = courseService.createCourse(course);

@@ -16,7 +16,7 @@ public class TeacherController {
     @Autowired
     private TeacherService teacherService;
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<?> createTeacher(@RequestBody Teacher teacher) {
         try {
             Teacher createdTeacher = teacherService.createTeacher(teacher);

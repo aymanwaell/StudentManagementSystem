@@ -13,6 +13,13 @@ public class Quiz {
     @Column(name = "name")
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
+
+    public Quiz() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -27,5 +34,13 @@ public class Quiz {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

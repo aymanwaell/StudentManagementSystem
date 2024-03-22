@@ -1,6 +1,7 @@
 package com.AnywareSoftware.StudentManagementSystem.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "courses")
@@ -13,6 +14,19 @@ public class Course {
     @Column(name = "name")
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<Student> students;
+
+    // Constructors, getters, and setters
+    // Constructor
+    public Course() {
+    }
+
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -27,5 +41,21 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }

@@ -1,17 +1,24 @@
 package com.AnywareSoftware.StudentManagementSystem.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "students")
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
+
+    public Student() {
+    }
 
     public Long getId() {
         return id;
@@ -27,5 +34,13 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

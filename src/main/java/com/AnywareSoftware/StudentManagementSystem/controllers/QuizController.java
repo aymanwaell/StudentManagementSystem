@@ -16,7 +16,7 @@ public class QuizController {
     @Autowired
     private QuizService quizService;
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<?> createQuiz(@RequestBody Quiz quiz) {
         try {
             Quiz createdQuiz = quizService.createQuiz(quiz);
