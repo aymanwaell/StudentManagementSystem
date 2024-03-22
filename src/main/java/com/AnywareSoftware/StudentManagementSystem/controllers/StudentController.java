@@ -17,12 +17,13 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/create")
     public ResponseEntity<Student> createStudent(@RequestBody Student student) {
         try {
             Student createdStudent = studentService.createStudent(student);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdStudent);
         } catch (Exception e) {
+            e.printStackTrace(); // Log the exception
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
