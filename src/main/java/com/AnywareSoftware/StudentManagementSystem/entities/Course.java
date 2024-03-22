@@ -21,12 +21,9 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<Student> students;
 
-    // Constructors, getters, and setters
-    // Constructor
     public Course() {
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

@@ -4,6 +4,7 @@ import com.AnywareSoftware.StudentManagementSystem.entities.Student;
 import com.AnywareSoftware.StudentManagementSystem.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @PostMapping("/create")
+    @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Student> createStudent(@RequestBody Student student) {
         try {
             Student createdStudent = studentService.createStudent(student);

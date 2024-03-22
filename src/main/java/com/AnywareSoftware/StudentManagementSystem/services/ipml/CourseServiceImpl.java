@@ -19,7 +19,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public Course createCourse(Course course) {
         courseDAO.saveCourse(course);
-        return course; // Optional: return the saved course
+        return course;
     }
 
     @Override
@@ -38,9 +38,9 @@ public class CourseServiceImpl implements CourseService {
         if (existingCourse != null) {
             course.setId(existingCourse.getId());
             courseDAO.updateCourse(course);
-            return course; // Optional: return the updated course
+            return course;
         }
-        return null; // Or throw an exception
+        return null;
     }
 
     @Override

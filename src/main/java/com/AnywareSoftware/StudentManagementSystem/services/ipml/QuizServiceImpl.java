@@ -19,7 +19,7 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public Quiz createQuiz(Quiz quiz) {
         quizDAO.saveQuiz(quiz);
-        return quiz; // Optional: return the saved quiz
+        return quiz;
     }
 
     @Override
@@ -38,9 +38,9 @@ public class QuizServiceImpl implements QuizService {
         if (existingQuiz != null) {
             quiz.setId(existingQuiz.getId());
             quizDAO.updateQuiz(quiz);
-            return quiz; // Optional: return the updated quiz
+            return quiz;
         }
-        return null; // Or throw an exception
+        return null;
     }
 
     @Override

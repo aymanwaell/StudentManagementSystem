@@ -19,7 +19,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student createStudent(Student student) {
         studentDAO.saveStudent(student);
-        return student; // Optional: return the saved student
+        return student;
     }
 
     @Override
@@ -38,9 +38,9 @@ public class StudentServiceImpl implements StudentService {
         if (existingStudent != null) {
             student.setId(existingStudent.getId());
             studentDAO.updateStudent(student);
-            return student; // Optional: return the updated student
+            return student;
         }
-        return null; // Or throw an exception
+        return null;
     }
 
     @Override
