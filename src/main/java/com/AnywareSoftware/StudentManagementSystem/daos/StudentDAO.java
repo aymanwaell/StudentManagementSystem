@@ -1,43 +1,34 @@
 package com.AnywareSoftware.StudentManagementSystem.daos;
 
 import com.AnywareSoftware.StudentManagementSystem.entities.Student;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-@Transactional
 public class StudentDAO {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     public void saveStudent(Student student) {
-        Session session = sessionFactory.getCurrentSession();
-        session.save(student);
+        entityManager.persist(student);
     }
 
     public void updateStudent(Student student) {
-        Session session = sessionFactory.getCurrentSession();
-        session.update(student);
+        entityManager.merge(student);
     }
 
     public void deleteStudent(Student student) {
-        Session session = sessionFactory.getCurrentSession();
-        session.delete(student);
+        entityManager.remove(student);
     }
 
     public Student getStudentById(Long id) {
-        Session session = sessionFactory.getCurrentSession();
-        return session.get(Student.class, id);
+        return entityManager.find(Student.class, id);
     }
 
     public List<Student> getAllStudents() {
-        Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("FROM Student", Student.class).list();
+        return entityManager.createQuery("FROM Student", Student.class).getResultList();
     }
 }

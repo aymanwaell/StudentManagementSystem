@@ -24,16 +24,19 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @Transactional
     public Student getStudentById(Long id) {
         return studentDAO.getStudentById(id);
     }
 
     @Override
+    @Transactional
     public List<Student> getAllStudents() {
         return studentDAO.getAllStudents();
     }
 
     @Override
+    @Transactional
     public Student updateStudent(Long id, Student student) {
         Student existingStudent = studentDAO.getStudentById(id);
         if (existingStudent != null) {
@@ -45,6 +48,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @Transactional
     public void deleteStudent(Long id) {
         Student student = studentDAO.getStudentById(id);
         if (student != null) {
