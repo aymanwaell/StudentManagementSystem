@@ -48,6 +48,11 @@
     <!-- Enable annotation-driven transaction management -->
     <tx:annotation-driven/>
 
+    <!-- MVC Configuration -->
+    <mvc:annotation-driven/>
+    <mvc:resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"/>
+    <mvc:resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"/>
+
     <!-- View Resolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
