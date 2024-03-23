@@ -14,7 +14,7 @@ public class Teacher {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Course> courses;
 
     // Constructors, getters, and setters
