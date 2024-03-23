@@ -20,6 +20,13 @@ public class Quiz {
     public Quiz() {
     }
 
+    public Quiz(Long id, String name, Course course) {
+        this.id = id;
+        this.name = name;
+        this.course = course;
+    }
+
+
     public Long getId() {
         return id;
     }
@@ -43,4 +50,5 @@ public class Quiz {
     public void setCourse(Course course) {
         this.course = course;
     }
+
 }

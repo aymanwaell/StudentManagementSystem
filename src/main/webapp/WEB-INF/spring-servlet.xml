@@ -9,23 +9,25 @@
 
     <context:component-scan base-package="com.AnywareSoftware.StudentManagementSystem.controllers"/>
     <context:component-scan base-package="com.AnywareSoftware.StudentManagementSystem.services"/>
+    <context:component-scan base-package="com.AnywareSoftware.StudentManagementSystem.services.ipml"/>
     <context:component-scan base-package="com.AnywareSoftware.StudentManagementSystem.daos"/>
     <context:component-scan base-package="com.AnywareSoftware.StudentManagementSystem.entities"/>
 
     <!-- Data Source Configuration -->
     <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/assignment_submission_db"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/assignment"/>
         <property name="username" value="root"/>
         <property name="password" value="1234"/>
     </bean>
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 
     <!-- Hibernate Session Factory Configuration -->
     <bean id="factory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="ds"/>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
             </props>
